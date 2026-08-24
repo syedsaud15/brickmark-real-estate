@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrickMark — Find Properties in Bangalore &amp; Mumbai</title>
+  <meta name="description" content="Search verified properties for sale and rent in Bangalore and Mumbai. Browse apartments, villas, and studios with BrickMark — India's trusted property portal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #E53935;
+      --primary-dark: #B71C1C;
+      --primary-light: #FF6F60;
+      --primary-glow: rgba(229,57,53,0.22);
+      --bg-dark: #0C0C12;
+      --bg-card: #14141E;
+      --bg-elevated: #1C1C28;
+      --bg-glass: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --border-focus: rgba(229,57,53,0.5);
+      --text-primary: #F2F2F7;
+      --text-secondary: #8E8EA8;
+      --text-muted: #56566A;
+      --accent-green: #43A047;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.5);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.6);
+      --shadow-red: 0 8px 32px rgba(229,57,53,0.25);
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; font-weight: 700; line-height: 1.25; }
+    button { cursor: pointer; border: none; outline: none; font-family: 'Inter', sans-serif; }
+    input, select, textarea { outline: none; font-family: 'Inter', sans-serif; }
+    img { display: block; max-width: 100%; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── Layout ── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Navbar ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(12,12,18,0.9); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); height: 64px;
+      display: flex; align-items: center;
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .navbar-logo { display: flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; cursor: pointer; }
+    .logo-icon { width: 36px; height: 36px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-red); font-size: 18px; }
+    .logo-red { color: var(--primary); }
+    .navbar-links { display: flex; align-items: center; gap: 8px; }
+    .nav-link { padding: 8px 16px; border-radius: var(--radius-md); font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: var(--transition); cursor: pointer; background: none; }
+    .nav-link:hover { color: var(--text-primary); background: var(--bg-glass); }
+    .nav-btn { padding: 8px 20px; border-radius: var(--radius-md); font-size: 14px; font-weight: 600; background: var(--primary); color: #fff; transition: var(--transition); }
+    .nav-btn:hover { background: var(--primary-light); transform: translateY(-1px); box-shadow: var(--shadow-red); }
+
+    /* ── Hero ── */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(229,57,53,0.12) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 80% 50%, rgba(21,101,192,0.08) 0%, transparent 60%), var(--bg-dark); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%); mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%); }
+    .hero-content { position: relative; z-index: 1; width: 100%; padding: 60px 0; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; background: rgba(229,57,53,0.15); border: 1px solid rgba(229,57,53,0.3); font-size: 13px; font-weight: 500; color: var(--primary-light); margin-bottom: 24px; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); display: inline-block; animation: pulse-dot 2s ease infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(1.4); } }
+    .hero-title { font-size: clamp(36px,6vw,72px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -.02em; }
+    .hero-title .highlight { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 40px; max-width: 520px; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+    .stat-val { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── Search Box ── */
+    .search-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-lg); max-width: 860px; }
+    .search-tabs { display: flex; gap: 4px; background: var(--bg-dark); border-radius: var(--radius-md); padding: 4px; margin-bottom: 20px; width: fit-content; }
+    .search-tab { padding: 8px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; color: var(--text-secondary); background: transparent; transition: var(--transition); cursor: pointer; border: none; }
+    .search-tab.active { background: var(--primary); color: #fff; box-shadow: var(--shadow-red); }
+    .search-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+    .search-field { flex: 1; min-width: 180px; }
+    .search-field.wide { flex: 2; }
+    .search-field label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 8px; }
+    .search-select { width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; font-size: 14px; color: var(--text-primary); transition: var(--transition); }
+    .search-select:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px var(--primary-glow); }
+    .search-select option { background: var(--bg-elevated); }
+    .search-btn { background: var(--primary); color: #fff; padding: 12px 32px; border-radius: var(--radius-md); font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: var(--transition); white-space: nowrap; min-width: 130px; justify-content: center; border: none; }
+    .search-btn:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: var(--shadow-red); }
+    .bhk-row { margin-top: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .bhk-label { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .bhk-btn { padding: 6px 16px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-dark); color: var(--text-secondary); font-size: 13px; font-weight: 500; transition: var(--transition); cursor: pointer; }
+    .bhk-btn:hover, .bhk-btn.active { border-color: var(--primary); color: var(--primary); background: rgba(229,57,53,0.08); }
+
+    /* ── Sections ── */
+    .section { padding: 80px 0; }
+    .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+    .section-title { font-size: clamp(24px,3vw,36px); font-weight: 700; }
+    .section-title span { color: var(--primary); }
+    .section-subtitle { font-size: 15px; color: var(--text-secondary); margin-top: 6px; }
+    .section-link { font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); white-space: nowrap; background: none; border: none; }
+    .section-link:hover { color: var(--primary-light); }
+
+    /* ── Property Grid & Cards ── */
+    .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 24px; }
+    .property-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer; }
+    .property-card:hover { transform: translateY(-6px); border-color: rgba(229,57,53,0.2); box-shadow: var(--shadow-lg), 0 0 0 1px rgba(229,57,53,0.1); }
+    .card-img-wrap { position: relative; height: 200px; overflow: hidden; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .property-card:hover .card-img-wrap img { transform: scale(1.06); }
+    .card-price-badge { position: absolute; bottom: 12px; left: 12px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 6px 14px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; box-shadow: var(--shadow-red); }
+    .card-type-badge { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: var(--text-primary); padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; }
+    .card-verified-badge { position: absolute; top: 12px; right: 12px; background: rgba(67,160,71,0.9); color: #fff; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+    .card-body { padding: 18px; }
+    .card-title { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; color: var(--text-primary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-locality { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; margin-bottom: 14px; }
+    .card-specs { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+    .card-spec { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-secondary); }
+    .card-spec .spec-icon { color: var(--primary); }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
+    .card-agent { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+    .agent-avatar-sm { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .card-contact-btn { padding: 6px 14px; border-radius: var(--radius-sm); background: rgba(229,57,53,0.12); border: 1px solid rgba(229,57,53,0.25); color: var(--primary-light); font-size: 12px; font-weight: 600; transition: var(--transition); cursor: pointer; }
+    .card-contact-btn:hover { background: var(--primary); color: #fff; }
+
+    /* ── Skeleton ── */
+    @keyframes shimmer { 0% { background-position: -500px 0; } 100% { background-position: 500px 0; } }
+    .skeleton { background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%); background-size: 1000px 100%; animation: shimmer 1.5s infinite; border-radius: var(--radius-sm); }
+    .skeleton-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .skeleton-img { height: 200px; width: 100%; }
+    .skeleton-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .skeleton-line { height: 14px; border-radius: 4px; }
+
+    /* ── Why Us ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
+    .why-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; transition: var(--transition); }
+    .why-card:hover { border-color: rgba(229,57,53,0.2); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .why-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px; }
+    .why-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .why-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 60px 0; text-align: center; }
+    .cta-title { font-size: clamp(24px,4vw,40px); font-weight: 800; margin-bottom: 12px; }
+    .cta-subtitle { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+    .cta-btn { background: #fff; color: var(--primary); padding: 14px 36px; border-radius: var(--radius-md); font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; border: none; transition: var(--transition); }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+    /* ── Results Page ── */
+    .results-page { padding-top: 64px; min-height: 100vh; }
+    .breadcrumb-bar { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 12px 0; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); }
+    .breadcrumb-link { cursor: pointer; transition: var(--transition); }
+    .breadcrumb-link:hover { color: var(--primary); }
+    .results-layout { display: flex; gap: 24px; padding: 32px 0; }
+    .results-main { flex: 1; min-width: 0; }
+    .results-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    .results-count { font-size: 15px; color: var(--text-secondary); }
+    .results-count strong { color: var(--text-primary); font-family: 'Outfit', sans-serif; font-size: 20px; }
+    .sort-select { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 8px 14px; font-size: 13px; color: var(--text-primary); }
+    .sort-select option { background: var(--bg-elevated); }
+    .no-results { text-align: center; padding: 80px 0; color: var(--text-secondary); }
+    .no-results .no-icon { font-size: 48px; margin-bottom: 12px; }
+    .no-results h3 { font-size: 22px; color: var(--text-primary); margin-bottom: 8px; }
+    .clear-filter-btn { margin-top: 20px; padding: 10px 28px; background: var(--primary); color: #fff; border-radius: var(--radius-md); font-weight: 600; font-size: 14px; cursor: pointer; border: none; }
+
+    /* ── Filter Sidebar ── */
+    .filter-sidebar { width: 268px; flex-shrink: 0; position: sticky; top: 80px; height: fit-content; max-height: calc(100vh - 100px); overflow-y: auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; }
+    .filter-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+    .filter-clear-btn { font-size: 12px; color: var(--primary); background: none; border: none; cursor: pointer; font-weight: 600; }
+    .filter-section { margin-bottom: 22px; }
+    .filter-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 10px; }
+    .filter-opt { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); font-size: 14px; color: var(--text-secondary); user-select: none; }
+    .filter-opt:hover { background: var(--bg-glass); color: var(--text-primary); }
+    .filter-opt.active { color: var(--primary); background: rgba(229,57,53,0.08); }
+    .filter-cb { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border); background: var(--bg-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); font-size: 10px; color: #fff; }
+    .filter-opt.active .filter-cb { background: var(--primary); border-color: var(--primary); }
+    .filter-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
+    .filter-loc-select { width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; font-size: 13px; color: var(--text-primary); }
+    .filter-loc-select option { background: var(--bg-elevated); }
+
+    /* ── Property Detail Modal ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px; animation: fadeIn .2s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal-panel { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); width: 100%; max-width: 880px; max-height: 90vh; overflow-y: auto; animation: slideUp .3s cubic-bezier(.4,0,.2,1); position: relative; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-close-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-dark); border: 1px solid var(--border); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); font-size: 18px; z-index: 10; line-height: 1; }
+    .modal-close-btn:hover { color: var(--text-primary); background: var(--bg-elevated); }
+    .detail-img { width: 100%; height: 340px; object-fit: cover; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+    .detail-content { padding: 28px; }
+    .detail-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .detail-badge { padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+    .badge-type { background: rgba(229,57,53,0.12); color: var(--primary-light); border: 1px solid rgba(229,57,53,0.2); }
+    .badge-listing { background: rgba(21,101,192,0.12); color: #90CAF9; border: 1px solid rgba(21,101,192,0.2); }
+    .badge-verified { background: rgba(67,160,71,0.12); color: #A5D6A7; border: 1px solid rgba(67,160,71,0.2); }
+    .detail-title { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .detail-locality { font-size: 15px; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; margin-bottom: 16px; }
+    .detail-price { font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 24px; }
+    .specs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 12px; margin-bottom: 24px; }
+    .spec-card { background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; display: flex; gap: 10px; align-items: center; }
+    .spec-card-icon { font-size: 20px; flex-shrink: 0; }
+    .spec-val { font-size: 14px; font-weight: 600; }
+    .spec-key { font-size: 12px; color: var(--text-muted); }
+    .detail-section-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; margin-top: 24px; }
+    .detail-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .amenities-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .amenity-tag { padding: 5px 14px; border-radius: 100px; background: var(--bg-dark); border: 1px solid var(--border); font-size: 12px; color: var(--text-secondary); }
+    .agent-card { background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; margin-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .agent-info { display: flex; gap: 14px; align-items: center; }
+    .agent-avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; }
+    .agent-name { font-weight: 600; margin-bottom: 2px; }
+    .agent-phone { font-size: 13px; color: var(--text-secondary); }
+    .enquiry-btn { padding: 10px 24px; border-radius: var(--radius-md); background: var(--primary); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: var(--transition); cursor: pointer; border: none; }
+    .enquiry-btn:hover { background: var(--primary-light); transform: translateY(-1px); box-shadow: var(--shadow-red); }
+
+    /* ── Contact Modal ── */
+    .contact-modal-panel { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); width: 100%; max-width: 480px; padding: 36px; animation: slideUp .3s cubic-bezier(.4,0,.2,1); position: relative; }
+    .contact-modal-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .contact-modal-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+    .contact-modal-subtitle strong { color: var(--text-primary); }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); margin-bottom: 8px; }
+    .form-input, .form-textarea { width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; font-size: 14px; color: var(--text-primary); transition: var(--transition); }
+    .form-input:focus, .form-textarea:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px var(--primary-glow); }
+    .form-input.error, .form-textarea.error { border-color: var(--primary); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-error { color: var(--primary); font-size: 12px; margin-top: 4px; }
+    .form-submit { width: 100%; padding: 14px; background: var(--primary); color: #fff; border-radius: var(--radius-md); font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: var(--transition); margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .form-submit:hover { background: var(--primary-light); transform: translateY(-1px); box-shadow: var(--shadow-red); }
+    .success-box { text-align: center; padding: 20px 0; }
+    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(67,160,71,0.15); border: 2px solid rgba(67,160,71,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; color: var(--accent-green); }
+    .success-box h3 { font-size: 20px; margin-bottom: 8px; }
+    .success-box p { font-size: 14px; color: var(--text-secondary); }
+    .success-box strong { color: var(--text-primary); }
+
+    /* ── Footer ── */
+    .footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 60px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand-desc { font-size: 14px; color: var(--text-secondary); margin-top: 12px; max-width: 280px; line-height: 1.7; }
+    .footer-col-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-link { font-size: 14px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); background: none; border: none; text-align: left; }
+    .footer-link:hover { color: var(--primary); }
+    .footer-divider { height: 1px; background: var(--border); margin-bottom: 48px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); flex-wrap: wrap; gap: 12px; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-link { cursor: pointer; transition: var(--transition); }
+    .footer-bottom-link:hover { color: var(--primary); }
+
+    /* ── API Error ── */
+    .api-error { background: rgba(229,57,53,0.08); border: 1px solid rgba(229,57,53,0.2); border-radius: var(--radius-md); padding: 20px; text-align: center; color: var(--text-secondary); margin: 20px 0; }
+    .api-error strong { color: var(--primary-light); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .results-layout { flex-direction: column; }
+      .filter-sidebar { width: 100%; position: static; max-height: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .search-row { flex-direction: column; }
+      .search-field, .search-field.wide { min-width: 100%; flex: none; width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .navbar-links { display: none; }
+      .specs-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="modal-root"></div>
+
+  <script>
+    'use strict';
+
+    /* ═══════════════════════════════════════════════════════════
+       CONSTANTS & UTILITIES
+    ═══════════════════════════════════════════════════════════ */
+    var API = 'http://localhost:8000';
+
+    var LOCALITIES = {
+      Bangalore: ['Koramangala','Whitefield','Indiranagar','HSR Layout','Bellandur','Jayanagar','Electronic City','Sarjapur Road','Marathahalli','JP Nagar'],
+      Mumbai: ['Bandra West','Powai','Andheri West','Juhu','Malad West','Thane West','Worli','Goregaon East','Navi Mumbai','Lower Parel']
+    };
+
+    var BUDGET_RANGES_BUY = [
+      { label: 'Under ₹50 L', min: 0, max: 5000000 },
+      { label: '₹50 L – ₹1 Cr', min: 5000000, max: 10000000 },
+      { label: '₹1 Cr – ₹2 Cr', min: 10000000, max: 20000000 },
+      { label: '₹2 Cr – ₹5 Cr', min: 20000000, max: 50000000 },
+      { label: 'Above ₹5 Cr', min: 50000000, max: 999999999 }
+    ];
+
+    var BUDGET_RANGES_RENT = [
+      { label: 'Under ₹20K/mo', min: 0, max: 20000 },
+      { label: '₹20K – ₹50K/mo', min: 20000, max: 50000 },
+      { label: '₹50K – ₹1L/mo', min: 50000, max: 100000 },
+      { label: 'Above ₹1L/mo', min: 100000, max: 9999999 }
+    ];
+
+    function formatPrice(price, listingType) {
+      if (listingType === 'rent') return '₹' + price.toLocaleString('en-IN') + '/mo';
+      if (price >= 10000000) return '₹' + (price / 10000000).toFixed(2) + ' Cr';
+      if (price >= 100000) return '₹' + (price / 100000).toFixed(0) + ' L';
+      return '₹' + price.toLocaleString('en-IN');
+    }
+
+    function getInitials(name) {
+      if (!name) return 'AG';
+      return name.split(' ').map(function(w) { return w[0] || ''; }).join('').slice(0, 2).toUpperCase();
+    }
+
+    function esc(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       STATE
+    ═══════════════════════════════════════════════════════════ */
+    var State = {
+      page: 'home',
+      // Hero search state
+      heroListingType: 'buy',
+      heroCity: '',
+      heroLocality: '',
+      heroBudget: '',
+      heroBhk: null,
+      // Search page filters
+      filters: {
+        city: '', listingType: '', bedrooms: null,
+        propertyType: '', locality: '', furnished: '',
+        minPrice: '', maxPrice: '', budgetIdx: null
+      },
+      sortBy: 'newest',
+      // Data
+      properties: [],
+      total: 0,
+      loading: false,
+      apiError: false
+    };
+
+    /* ═══════════════════════════════════════════════════════════
+       ROUTING
+    ═══════════════════════════════════════════════════════════ */
+    function getHashParams() {
+      var hash = window.location.hash || '#/';
+      var qIdx = hash.indexOf('?');
+      if (qIdx < 0) return {};
+      var qs = hash.slice(qIdx + 1);
+      var params = {};
+      qs.split('&').forEach(function(pair) {
+        var parts = pair.split('=');
+        if (parts[0]) params[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1] || '');
+      });
+      return params;
+    }
+
+    function getHashPath() {
+      var hash = window.location.hash || '#/';
+      var qIdx = hash.indexOf('?');
+      var p = qIdx >= 0 ? hash.slice(1, qIdx) : hash.slice(1);
+      return p || '/';
+    }
+
+    function navigate(path, params) {
+      params = params || {};
+      var qs = Object.keys(params)
+        .filter(function(k) { var v = params[k]; return v !== '' && v !== null && v !== undefined; })
+        .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]); })
+        .join('&');
+      window.location.hash = '#' + path + (qs ? '?' + qs : '');
+    }
+
+    window.addEventListener('hashchange', function() { route(); });
+
+    function route() {
+      var path = getHashPath();
+      var params = getHashParams();
+      if (path === '/search') {
+        State.filters = {
+          city: params.city || '',
+          listingType: params.listing_type || '',
+          bedrooms: params.bedrooms ? parseInt(params.bedrooms) : null,
+          propertyType: params.property_type || '',
+          locality: params.locality || '',
+          furnished: params.furnished || '',
+          minPrice: params.min_price || '',
+          maxPrice: params.max_price || '',
+          budgetIdx: null
+        };
+        State.sortBy = 'newest';
+        renderSearchPage();
+        fetchProperties();
+      } else {
+        renderHomePage();
+        fetchFeaturedProperties();
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       API
+    ═══════════════════════════════════════════════════════════ */
+    function buildParams(filters, sortBy) {
+      var p = { sort_by: sortBy };
+      if (filters.city) p.city = filters.city;
+      if (filters.listingType) p.listing_type = filters.listingType;
+      if (filters.bedrooms) p.bedrooms = filters.bedrooms;
+      if (filters.propertyType) p.property_type = filters.propertyType;
+      if (filters.locality) p.locality = filters.locality;
+      if (filters.furnished) p.furnished = filters.furnished;
+      if (filters.minPrice !== '') p.min_price = filters.minPrice;
+      if (filters.maxPrice !== '') p.max_price = filters.maxPrice;
+      return p;
+    }
+
+    function apiGet(path, params, callback) {
+      var qs = Object.keys(params || {})
+        .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]); })
+        .join('&');
+      var url = API + path + (qs ? '?' + qs : '');
+      fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(data) { callback(null, data); })
+        .catch(function(err) { callback(err, null); });
+    }
+
+    function fetchFeaturedProperties() {
+      State.loading = true;
+      State.apiError = false;
+      updateFeaturedGrid();
+      apiGet('/api/properties', { sort_by: 'newest' }, function(err, data) {
+        State.loading = false;
+        if (err || !data) {
+          State.apiError = true;
+          State.properties = [];
+        } else {
+          State.properties = (data.properties || []).slice(0, 6);
+        }
+        updateFeaturedGrid();
+      });
+    }
+
+    function fetchProperties() {
+      State.loading = true;
+      State.apiError = false;
+      updateResultsGrid();
+      var params = buildParams(State.filters, State.sortBy);
+      apiGet('/api/properties', params, function(err, data) {
+        State.loading = false;
+        if (err || !data) {
+          State.apiError = true;
+          State.properties = [];
+          State.total = 0;
+        } else {
+          State.properties = data.properties || [];
+          State.total = data.total || 0;
+        }
+        updateResultsGrid();
+        updateResultsCount();
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SKELETON HTML
+    ═══════════════════════════════════════════════════════════ */
+    function skeletonGrid(count) {
+      var cards = '';
+      for (var i = 0; i < count; i++) {
+        cards += '<div class="skeleton-card">' +
+          '<div class="skeleton skeleton-img"></div>' +
+          '<div class="skeleton-body">' +
+          '<div class="skeleton skeleton-line" style="width:80%"></div>' +
+          '<div class="skeleton skeleton-line" style="width:55%"></div>' +
+          '<div style="display:flex;gap:12px">' +
+          '<div class="skeleton skeleton-line" style="width:28%"></div>' +
+          '<div class="skeleton skeleton-line" style="width:28%"></div>' +
+          '<div class="skeleton skeleton-line" style="width:24%"></div>' +
+          '</div>' +
+          '<div class="skeleton skeleton-line" style="width:50%"></div>' +
+          '</div></div>';
+      }
+      return '<div class="property-grid">' + cards + '</div>';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROPERTY CARD HTML
+    ═══════════════════════════════════════════════════════════ */
+    function propertyCardHTML(p) {
+      var price = formatPrice(p.price, p.listing_type);
+      var init = getInitials(p.posted_by);
+      var fallback = 'https://placehold.co/800x500/14141E/E53935?text=' + encodeURIComponent(p.locality || 'Property');
+      return '<div class="property-card" data-id="' + p.id + '" data-action="open-detail">' +
+        '<div class="card-img-wrap">' +
+        '<img src="' + esc(p.image_url) + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
+        '<span class="card-price-badge">' + esc(price) + '</span>' +
+        '<span class="card-type-badge">' + esc(p.property_type) + '</span>' +
+        (p.is_verified === 1 ? '<span class="card-verified-badge">✓ Verified</span>' : '') +
+        '</div>' +
+        '<div class="card-body">' +
+        '<div class="card-title">' + esc(p.title) + '</div>' +
+        '<div class="card-locality">📍 ' + esc(p.locality) + ', ' + esc(p.city) + '</div>' +
+        '<div class="card-specs">' +
+        '<span class="card-spec">🛏 ' + p.bedrooms + ' BHK</span>' +
+        '<span class="card-spec">🚿 ' + p.bathrooms + ' Bath</span>' +
+        '<span class="card-spec">📐 ' + p.area_sqft.toLocaleString() + ' sqft</span>' +
+        '</div>' +
+        '<div class="card-footer">' +
+        '<div class="card-agent"><div class="agent-avatar-sm">' + esc(init) + '</div> ' + esc(p.posted_by || 'Agent') + '</div>' +
+        '<button class="card-contact-btn" data-id="' + p.id + '" data-action="open-contact">Contact</button>' +
+        '</div></div></div>';
+    }
+
+    function propertiesGridHTML(properties) {
+      if (!properties.length) return '';
+      return '<div class="property-grid">' + properties.map(propertyCardHTML).join('') + '</div>';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HOME PAGE
+    ═══════════════════════════════════════════════════════════ */
+    function renderHomePage() {
+      State.page = 'home';
+      var html = navbarHTML() +
+        heroHTML() +
+        '<section class="section" style="padding-top:0"><div class="container">' +
+        '<div class="section-header">' +
+        '<div><h2 class="section-title">Featured <span>Properties</span></h2>' +
+        '<p class="section-subtitle">Handpicked premium listings across Bangalore &amp; Mumbai</p></div>' +
+        '<button class="section-link" onclick="navigate(\'/search\',{})">View All →</button>' +
+        '</div>' +
+        '<div id="featured-grid">' + skeletonGrid(6) + '</div>' +
+        '</div></section>' +
+        ctaBannerHTML() +
+        footerHTML();
+      document.getElementById('app').innerHTML = html;
+      attachHomeEvents();
+    }
+
+    function updateFeaturedGrid() {
+      var el = document.getElementById('featured-grid');
+      if (!el) return;
+      if (State.loading) { el.innerHTML = skeletonGrid(6); return; }
+      if (State.apiError) {
+        el.innerHTML = '<div class="api-error"><strong>⚠ Could not connect to API.</strong><br>Make sure the backend is running at ' + API + '</div>';
+        return;
+      }
+      if (!State.properties.length) {
+        el.innerHTML = '<div class="api-error">No properties found.</div>';
+        return;
+      }
+      el.innerHTML = propertiesGridHTML(State.properties);
+      attachCardEvents(el);
+    }
+
+    function heroHTML() {
+      var lt = State.heroListingType;
+      var budgetRanges = lt === 'rent' ? BUDGET_RANGES_RENT : BUDGET_RANGES_BUY;
+      var locs = State.heroCity ? LOCALITIES[State.heroCity] || [] : [];
+
+      var budgetOptions = '<option value="">Any Budget</option>' +
+        budgetRanges.map(function(r, i) { return '<option value="' + i + '">' + r.label + '</option>'; }).join('');
+
+      var localityOptions = '<option value="">' + (State.heroCity ? 'Select Locality' : 'Select city first') + '</option>' +
+        locs.map(function(l) { return '<option value="' + esc(l) + '">' + esc(l) + '</option>'; }).join('');
+
+      var bhkBtns = [1,2,3,4,5].map(function(b) {
+        return '<button class="bhk-btn' + (State.heroBhk === b ? ' active' : '') + '" data-bhk="' + b + '" id="hero-bhk-' + b + '">' + b + ' BHK</button>';
+      }).join('');
+
+      return '<section class="hero">' +
+        '<div class="hero-bg"></div><div class="hero-grid"></div>' +
+        '<div class="container hero-content">' +
+        '<div class="hero-badge"><span class="badge-dot"></span> India\'s Trusted Property Search</div>' +
+        '<h1 class="hero-title">Find Your Dream<br><span class="highlight">Property in India</span></h1>' +
+        '<p class="hero-subtitle">Discover verified properties across Bangalore &amp; Mumbai. Buy or rent homes with complete transparency.</p>' +
+        '<div class="search-box">' +
+        '<div class="search-tabs">' +
+        '<button class="search-tab' + (lt === 'buy' ? ' active' : '') + '" id="hero-tab-buy" data-tab="buy">Buy</button>' +
+        '<button class="search-tab' + (lt === 'rent' ? ' active' : '') + '" id="hero-tab-rent" data-tab="rent">Rent</button>' +
+        '</div>' +
+        '<div class="search-row">' +
+        '<div class="search-field"><label>City</label>' +
+        '<select id="hero-city-select" class="search-select">' +
+        '<option value="">All Cities</option>' +
+        '<option value="Bangalore"' + (State.heroCity === 'Bangalore' ? ' selected' : '') + '>Bangalore</option>' +
+        '<option value="Mumbai"' + (State.heroCity === 'Mumbai' ? ' selected' : '') + '>Mumbai</option>' +
+        '</select></div>' +
+        '<div class="search-field wide"><label>Locality / Area</label>' +
+        '<select id="hero-locality-select" class="search-select"' + (!State.heroCity ? ' disabled' : '') + '>' + localityOptions + '</select></div>' +
+        '<div class="search-field"><label>Budget</label>' +
+        '<select id="hero-budget-select" class="search-select">' + budgetOptions + '</select></div>' +
+        '<button class="search-btn" id="hero-search-btn">🔍 Search</button>' +
+        '</div>' +
+        '<div class="bhk-row"><span class="bhk-label">BHK:</span>' + bhkBtns + '</div>' +
+        '</div>' +
+        '<div class="hero-stats">' +
+        '<div><div class="stat-val">20+</div><div class="stat-label">Verified Properties</div></div>' +
+        '<div><div class="stat-val">2</div><div class="stat-label">Prime Cities</div></div>' +
+        '<div><div class="stat-val">100%</div><div class="stat-label">Transparent Listings</div></div>' +
+        '</div></div></section>';
+    }
+
+    function attachHomeEvents() {
+      // Listing type tabs
+      var tabBuy = document.getElementById('hero-tab-buy');
+      var tabRent = document.getElementById('hero-tab-rent');
+      if (tabBuy) tabBuy.addEventListener('click', function() {
+        State.heroListingType = 'buy';
+        State.heroBudget = '';
+        refreshHero();
+      });
+      if (tabRent) tabRent.addEventListener('click', function() {
+        State.heroListingType = 'rent';
+        State.heroBudget = '';
+        refreshHero();
+      });
+
+      // City select
+      var citySelect = document.getElementById('hero-city-select');
+      if (citySelect) citySelect.addEventListener('change', function() {
+        State.heroCity = this.value;
+        State.heroLocality = '';
+        refreshHero();
+      });
+
+      // Locality select
+      var locSelect = document.getElementById('hero-locality-select');
+      if (locSelect) locSelect.addEventListener('change', function() { State.heroLocality = this.value; });
+
+      // Budget select
+      var budgetSelect = document.getElementById('hero-budget-select');
+      if (budgetSelect) budgetSelect.addEventListener('change', function() { State.heroBudget = this.value; });
+
+      // BHK buttons
+      [1,2,3,4,5].forEach(function(b) {
+        var btn = document.getElementById('hero-bhk-' + b);
+        if (btn) btn.addEventListener('click', function() {
+          State.heroBhk = (State.heroBhk === b) ? null : b;
+          document.querySelectorAll('.bhk-btn').forEach(function(el) {
+            el.classList.toggle('active', parseInt(el.dataset.bhk) === State.heroBhk);
+          });
+        });
+      });
+
+      // Search button
+      var searchBtn = document.getElementById('hero-search-btn');
+      if (searchBtn) searchBtn.addEventListener('click', function() {
+        var params = { listing_type: State.heroListingType };
+        if (State.heroCity) params.city = State.heroCity;
+        if (State.heroLocality) params.locality = State.heroLocality;
+        if (State.heroBudget !== '') {
+          var ranges = State.heroListingType === 'rent' ? BUDGET_RANGES_RENT : BUDGET_RANGES_BUY;
+          var r = ranges[parseInt(State.heroBudget)];
+          if (r) { params.min_price = r.min; params.max_price = r.max; }
+        }
+        if (State.heroBhk) params.bedrooms = State.heroBhk;
+        navigate('/search', params);
+      });
+
+      // CTA button
+      var ctaBtn = document.getElementById('cta-browse-btn');
+      if (ctaBtn) ctaBtn.addEventListener('click', function() { navigate('/search', {}); });
+    }
+
+    function refreshHero() {
+      var heroSection = document.querySelector('.hero');
+      if (!heroSection) return;
+      var tmp = document.createElement('div');
+      tmp.innerHTML = heroHTML();
+      heroSection.replaceWith(tmp.firstChild);
+      attachHomeEvents();
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SEARCH PAGE
+    ═══════════════════════════════════════════════════════════ */
+    function renderSearchPage() {
+      State.page = 'search';
+      var f = State.filters;
+      var crumb = (f.city || 'All Cities') + ' Properties' + (f.listingType ? ' for ' + (f.listingType === 'buy' ? 'Sale' : 'Rent') : '');
+
+      var html = navbarHTML() +
+        '<div class="results-page">' +
+        '<div class="breadcrumb-bar"><div class="container"><div class="breadcrumb">' +
+        '🏠 <span class="breadcrumb-link" id="breadcrumb-home">Home</span>' +
+        ' › <span style="color:var(--text-secondary)">' + esc(crumb) + '</span>' +
+        '</div></div></div>' +
+        '<div class="container"><div class="results-layout">' +
+        filterSidebarHTML() +
+        '<div class="results-main">' +
+        '<div class="results-topbar">' +
+        '<div class="results-count" id="results-count"><strong>…</strong> loading</div>' +
+        '<select class="sort-select" id="sort-select">' +
+        '<option value="newest">Sort: Newest First</option>' +
+        '<option value="price_asc">Price: Low to High</option>' +
+        '<option value="price_desc">Price: High to Low</option>' +
+        '</select>' +
+        '</div>' +
+        '<div id="results-grid">' + skeletonGrid(6) + '</div>' +
+        '</div>' +
+        '</div></div></div>' +
+        footerHTML();
+
+      document.getElementById('app').innerHTML = html;
+      attachSearchEvents();
+    }
+
+    function updateResultsGrid() {
+      var el = document.getElementById('results-grid');
+      if (!el) return;
+      if (State.loading) { el.innerHTML = skeletonGrid(6); return; }
+      if (State.apiError) {
+        el.innerHTML = '<div class="api-error"><strong>⚠ Could not connect to API.</strong><br>Make sure the backend is running at ' + API + '</div>';
+        return;
+      }
+      if (!State.properties.length) {
+        el.innerHTML = '<div class="no-results" id="no-results-msg"><div class="no-icon">🏠</div><h3>No properties found</h3><p>Try adjusting or clearing your filters.</p><button class="clear-filter-btn" id="no-results-clear">Clear Filters</button></div>';
+        var clearBtn = document.getElementById('no-results-clear');
+        if (clearBtn) clearBtn.addEventListener('click', function() { clearFilters(); });
+        return;
+      }
+      el.innerHTML = propertiesGridHTML(State.properties);
+      attachCardEvents(el);
+    }
+
+    function updateResultsCount() {
+      var el = document.getElementById('results-count');
+      if (!el) return;
+      var city = State.filters.city;
+      el.innerHTML = '<strong>' + State.total + '</strong> ' + (State.total === 1 ? 'property' : 'properties') + ' found' + (city ? ' in ' + esc(city) : '');
+    }
+
+    function filterSidebarHTML() {
+      var f = State.filters;
+      var budgetRanges = f.listingType === 'rent' ? BUDGET_RANGES_RENT : BUDGET_RANGES_BUY;
+      var locs = f.city ? LOCALITIES[f.city] || [] : [];
+
+      function checkOpt(id, label, active) {
+        return '<div class="filter-opt' + (active ? ' active' : '') + '" id="' + id + '">' +
+          '<div class="filter-cb">' + (active ? '✓' : '') + '</div>' + esc(label) + '</div>';
+      }
+
+      var localitySection = f.city ? (
+        '<div class="filter-section"><div class="filter-section-title">Locality</div>' +
+        '<select class="filter-loc-select" id="filter-locality-select">' +
+        '<option value="">All Localities</option>' +
+        locs.map(function(l) { return '<option value="' + esc(l) + '"' + (f.locality === l ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('') +
+        '</select></div><div class="filter-divider"></div>'
+      ) : '';
+
+      return '<aside class="filter-sidebar" id="filter-sidebar">' +
+        '<div class="filter-title">Filters <button class="filter-clear-btn" id="filter-clear-btn">Clear All</button></div>' +
+        '<div class="filter-section"><div class="filter-section-title">Listing Type</div>' +
+        checkOpt('filter-lt-buy', 'Buy', f.listingType === 'buy') +
+        checkOpt('filter-lt-rent', 'Rent', f.listingType === 'rent') +
+        '</div><div class="filter-divider"></div>' +
+        '<div class="filter-section"><div class="filter-section-title">City</div>' +
+        checkOpt('filter-city-bangalore', 'Bangalore', f.city === 'Bangalore') +
+        checkOpt('filter-city-mumbai', 'Mumbai', f.city === 'Mumbai') +
+        '</div><div class="filter-divider"></div>' +
+        localitySection +
+        '<div class="filter-section"><div class="filter-section-title">Budget</div>' +
+        budgetRanges.map(function(r, i) { return checkOpt('filter-budget-' + i, r.label, f.budgetIdx === i); }).join('') +
+        '</div><div class="filter-divider"></div>' +
+        '<div class="filter-section"><div class="filter-section-title">Bedrooms (BHK)</div>' +
+        [1,2,3,4,5].map(function(b) { return checkOpt('filter-bhk-' + b, b + ' BHK', f.bedrooms === b); }).join('') +
+        '</div><div class="filter-divider"></div>' +
+        '<div class="filter-section"><div class="filter-section-title">Property Type</div>' +
+        ['Apartment','Villa','Studio'].map(function(pt) { return checkOpt('filter-type-' + pt.toLowerCase(), pt, f.propertyType === pt); }).join('') +
+        '</div><div class="filter-divider"></div>' +
+        '<div class="filter-section"><div class="filter-section-title">Furnishing</div>' +
+        ['Furnished','Semi-Furnished','Bare'].map(function(fv) { return checkOpt('filter-furnished-' + fv.toLowerCase().replace(' ','-'), fv, f.furnished === fv); }).join('') +
+        '</div></aside>';
+    }
+
+    function refreshSidebar() {
+      var sidebar = document.getElementById('filter-sidebar');
+      if (!sidebar) return;
+      var tmp = document.createElement('div');
+      tmp.innerHTML = filterSidebarHTML();
+      sidebar.replaceWith(tmp.firstChild);
+      attachFilterEvents();
+    }
+
+    function applyFilter(patch) {
+      Object.assign(State.filters, patch);
+      refreshSidebar();
+      fetchProperties();
+    }
+
+    function clearFilters() {
+      State.filters = { city:'', listingType:'', bedrooms:null, propertyType:'', locality:'', furnished:'', minPrice:'', maxPrice:'', budgetIdx:null };
+      refreshSidebar();
+      fetchProperties();
+    }
+
+    function attachFilterEvents() {
+      // Listing type
+      var ltBuy = document.getElementById('filter-lt-buy');
+      var ltRent = document.getElementById('filter-lt-rent');
+      if (ltBuy) ltBuy.addEventListener('click', function() { applyFilter({ listingType: State.filters.listingType === 'buy' ? '' : 'buy', budgetIdx: null, minPrice: '', maxPrice: '' }); });
+      if (ltRent) ltRent.addEventListener('click', function() { applyFilter({ listingType: State.filters.listingType === 'rent' ? '' : 'rent', budgetIdx: null, minPrice: '', maxPrice: '' }); });
+
+      // City
+      var cityBng = document.getElementById('filter-city-bangalore');
+      var cityMum = document.getElementById('filter-city-mumbai');
+      if (cityBng) cityBng.addEventListener('click', function() { applyFilter({ city: State.filters.city === 'Bangalore' ? '' : 'Bangalore', locality: '' }); });
+      if (cityMum) cityMum.addEventListener('click', function() { applyFilter({ city: State.filters.city === 'Mumbai' ? '' : 'Mumbai', locality: '' }); });
+
+      // Locality select
+      var locSel = document.getElementById('filter-locality-select');
+      if (locSel) locSel.addEventListener('change', function() { applyFilter({ locality: this.value }); });
+
+      // Budget
+      var budgetRanges = State.filters.listingType === 'rent' ? BUDGET_RANGES_RENT : BUDGET_RANGES_BUY;
+      budgetRanges.forEach(function(r, i) {
+        var el = document.getElementById('filter-budget-' + i);
+        if (el) el.addEventListener('click', function() {
+          if (State.filters.budgetIdx === i) {
+            applyFilter({ budgetIdx: null, minPrice: '', maxPrice: '' });
+          } else {
+            applyFilter({ budgetIdx: i, minPrice: r.min, maxPrice: r.max });
+          }
+        });
+      });
+
+      // BHK
+      [1,2,3,4,5].forEach(function(b) {
+        var el = document.getElementById('filter-bhk-' + b);
+        if (el) el.addEventListener('click', function() { applyFilter({ bedrooms: State.filters.bedrooms === b ? null : b }); });
+      });
+
+      // Property type
+      ['Apartment','Villa','Studio'].forEach(function(pt) {
+        var el = document.getElementById('filter-type-' + pt.toLowerCase());
+        if (el) el.addEventListener('click', function() { applyFilter({ propertyType: State.filters.propertyType === pt ? '' : pt }); });
+      });
+
+      // Furnishing
+      ['Furnished','Semi-Furnished','Bare'].forEach(function(fv) {
+        var el = document.getElementById('filter-furnished-' + fv.toLowerCase().replace(' ','-'));
+        if (el) el.addEventListener('click', function() { applyFilter({ furnished: State.filters.furnished === fv ? '' : fv }); });
+      });
+
+      // Clear
+      var clearBtn = document.getElementById('filter-clear-btn');
+      if (clearBtn) clearBtn.addEventListener('click', function() { clearFilters(); });
+    }
+
+    function attachSearchEvents() {
+      attachFilterEvents();
+
+      var breadHome = document.getElementById('breadcrumb-home');
+      if (breadHome) breadHome.addEventListener('click', function() { navigate('/'); });
+
+      var sortSel = document.getElementById('sort-select');
+      if (sortSel) sortSel.addEventListener('change', function() {
+        State.sortBy = this.value;
+        fetchProperties();
+      });
+
+      attachNavEvents();
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CARD EVENTS (delegated)
+    ═══════════════════════════════════════════════════════════ */
+    function attachCardEvents(container) {
+      container.addEventListener('click', function(e) {
+        var target = e.target;
+        // Find closest element with data-action
+        while (target && target !== container) {
+          if (target.dataset.action === 'open-contact') {
+            e.stopPropagation();
+            var id = parseInt(target.dataset.id);
+            var prop = findPropertyById(id);
+            if (prop) openContactModal(prop);
+            return;
+          }
+          if (target.dataset.action === 'open-detail') {
+            var id2 = parseInt(target.dataset.id);
+            var prop2 = findPropertyById(id2);
+            if (prop2) openDetailModal(prop2);
+            return;
+          }
+          target = target.parentElement;
+        }
+      });
+    }
+
+    function findPropertyById(id) {
+      for (var i = 0; i < State.properties.length; i++) {
+        if (State.properties[i].id === id) return State.properties[i];
+      }
+      return null;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROPERTY DETAIL MODAL
+    ═══════════════════════════════════════════════════════════ */
+    function openDetailModal(p) {
+      var amenities = [];
+      try { amenities = JSON.parse(p.amenities || '[]'); } catch(e) {}
+      var init = getInitials(p.posted_by);
+      var price = formatPrice(p.price, p.listing_type);
+      var fallback = 'https://placehold.co/880x340/14141E/E53935?text=' + encodeURIComponent(p.locality || 'Property');
+
+      var amenitiesHTML = amenities.length ?
+        '<div class="detail-section-title">Amenities</div><div class="amenities-wrap">' +
+        amenities.map(function(a) { return '<span class="amenity-tag">' + esc(a) + '</span>'; }).join('') + '</div>' : '';
+
+      var specsHTML = '<div class="specs-grid">' +
+        '<div class="spec-card"><div class="spec-card-icon">🛏</div><div><div class="spec-val">' + p.bedrooms + ' BHK</div><div class="spec-key">Bedrooms</div></div></div>' +
+        '<div class="spec-card"><div class="spec-card-icon">🚿</div><div><div class="spec-val">' + p.bathrooms + '</div><div class="spec-key">Bathrooms</div></div></div>' +
+        '<div class="spec-card"><div class="spec-card-icon">📐</div><div><div class="spec-val">' + p.area_sqft.toLocaleString() + ' sqft</div><div class="spec-key">Built-up Area</div></div></div>' +
+        (p.floor ? '<div class="spec-card"><div class="spec-card-icon">🏢</div><div><div class="spec-val">' + esc(p.floor) + '</div><div class="spec-key">Floor</div></div></div>' : '') +
+        (p.furnished ? '<div class="spec-card"><div class="spec-card-icon">🛋</div><div><div class="spec-val">' + esc(p.furnished) + '</div><div class="spec-key">Furnishing</div></div></div>' : '') +
+        '<div class="spec-card"><div class="spec-card-icon">🚗</div><div><div class="spec-val">' + p.parking + '</div><div class="spec-key">Parking</div></div></div>' +
+        '</div>';
+
+      var html = '<div class="modal-overlay" id="detail-modal-overlay">' +
+        '<div class="modal-panel" id="detail-modal-panel">' +
+        '<button class="modal-close-btn" id="detail-modal-close">✕</button>' +
+        '<img class="detail-img" src="' + esc(p.image_url) + '" alt="' + esc(p.title) + '" onerror="this.src=\'' + fallback + '\'">' +
+        '<div class="detail-content">' +
+        '<div class="detail-badges">' +
+        '<span class="detail-badge badge-type">' + esc(p.property_type) + '</span>' +
+        '<span class="detail-badge badge-listing">' + (p.listing_type === 'buy' ? 'For Sale' : 'For Rent') + '</span>' +
+        (p.is_verified === 1 ? '<span class="detail-badge badge-verified">✓ Verified</span>' : '') +
+        '</div>' +
+        '<h2 class="detail-title">' + esc(p.title) + '</h2>' +
+        '<div class="detail-locality">📍 ' + esc(p.locality) + ', ' + esc(p.city) + '</div>' +
+        '<div class="detail-price">' + esc(price) + (p.listing_type === 'rent' ? '<span style="font-size:16px;color:var(--text-secondary);-webkit-text-fill-color:var(--text-secondary);font-family:Inter"> per month</span>' : '') + '</div>' +
+        specsHTML +
+        (p.description ? '<div class="detail-section-title">About this Property</div><p class="detail-desc">' + esc(p.description) + '</p>' : '') +
+        amenitiesHTML +
+        '<div class="agent-card">' +
+        '<div class="agent-info"><div class="agent-avatar-lg">' + esc(init) + '</div><div><div class="agent-name">' + esc(p.posted_by || 'Agent') + '</div><div class="agent-phone">' + esc(p.contact || '') + '</div></div></div>' +
+        '<button class="enquiry-btn" id="detail-contact-btn">💬 Send Enquiry</button>' +
+        '</div></div></div></div>';
+
+      document.getElementById('modal-root').innerHTML = html;
+
+      document.getElementById('detail-modal-close').addEventListener('click', closeModals);
+      document.getElementById('detail-modal-overlay').addEventListener('click', function(e) {
+        if (e.target === this) closeModals();
+      });
+      document.getElementById('detail-contact-btn').addEventListener('click', function() {
+        closeModals();
+        openContactModal(p);
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CONTACT MODAL
+    ═══════════════════════════════════════════════════════════ */
+    function openContactModal(p) {
+      var html = '<div class="modal-overlay" id="contact-modal-overlay">' +
+        '<div class="contact-modal-panel" id="contact-modal-panel">' +
+        '<button class="modal-close-btn" id="contact-modal-close">✕</button>' +
+        '<h2 class="contact-modal-title">Send Enquiry</h2>' +
+        '<p class="contact-modal-subtitle">About: <strong>' + esc(p.title) + '</strong></p>' +
+        '<div id="contact-form-inner">' +
+        formHTML() +
+        '</div></div></div>';
+
+      document.getElementById('modal-root').innerHTML = html;
+
+      document.getElementById('contact-modal-close').addEventListener('click', closeModals);
+      document.getElementById('contact-modal-overlay').addEventListener('click', function(e) {
+        if (e.target === this) closeModals();
+      });
+      attachContactFormEvents(p);
+    }
+
+    function formHTML() {
+      return '<div class="form-group">' +
+        '<label class="form-label" for="contact-name">Full Name *</label>' +
+        '<input id="contact-name" class="form-input" type="text" placeholder="e.g. Rahul Sharma">' +
+        '<div class="form-error" id="err-name"></div></div>' +
+        '<div class="form-group">' +
+        '<label class="form-label" for="contact-phone">Phone Number *</label>' +
+        '<input id="contact-phone" class="form-input" type="tel" placeholder="+91 98XXX XXXXX">' +
+        '<div class="form-error" id="err-phone"></div></div>' +
+        '<div class="form-group">' +
+        '<label class="form-label" for="contact-email">Email Address *</label>' +
+        '<input id="contact-email" class="form-input" type="email" placeholder="you@example.com">' +
+        '<div class="form-error" id="err-email"></div></div>' +
+        '<div class="form-group">' +
+        '<label class="form-label" for="contact-message">Message</label>' +
+        '<textarea id="contact-message" class="form-textarea" placeholder="I\'m interested in this property..."></textarea></div>' +
+        '<button type="button" class="form-submit" id="contact-submit-btn">✉ Send Enquiry</button>';
+    }
+
+    function attachContactFormEvents(p) {
+      var submitBtn = document.getElementById('contact-submit-btn');
+      if (!submitBtn) return;
+      submitBtn.addEventListener('click', function() {
+        var name = document.getElementById('contact-name').value.trim();
+        var phone = document.getElementById('contact-phone').value.trim();
+        var email = document.getElementById('contact-email').value.trim();
+
+        // Clear errors
+        ['name','phone','email'].forEach(function(f) {
+          document.getElementById('err-' + f).textContent = '';
+          document.getElementById('contact-' + f).classList.remove('error');
+        });
+
+        var valid = true;
+        if (!name) {
+          document.getElementById('err-name').textContent = 'Name is required';
+          document.getElementById('contact-name').classList.add('error');
+          valid = false;
+        }
+        if (!phone) {
+          document.getElementById('err-phone').textContent = 'Phone is required';
+          document.getElementById('contact-phone').classList.add('error');
+          valid = false;
+        } else if (!/^\+?[\d\s\-]{7,15}$/.test(phone)) {
+          document.getElementById('err-phone').textContent = 'Enter a valid phone number';
+          document.getElementById('contact-phone').classList.add('error');
+          valid = false;
+        }
+        if (!email) {
+          document.getElementById('err-email').textContent = 'Email is required';
+          document.getElementById('contact-email').classList.add('error');
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          document.getElementById('err-email').textContent = 'Enter a valid email';
+          document.getElementById('contact-email').classList.add('error');
+          valid = false;
+        }
+        if (!valid) return;
+
+        // Show success
+        document.getElementById('contact-form-inner').innerHTML =
+          '<div class="success-box" id="contact-success-msg">' +
+          '<div class="success-icon">✓</div>' +
+          '<h3>Enquiry Sent!</h3>' +
+          '<p>Thanks, <strong>' + esc(name) + '</strong>! ' + esc(p.posted_by || 'The agent') + ' will reach you on <strong>' + esc(phone) + '</strong> or <strong>' + esc(email) + '</strong> shortly.</p>' +
+          '</div>';
+      });
+    }
+
+    function closeModals() {
+      document.getElementById('modal-root').innerHTML = '';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════════════════ */
+    function navbarHTML() {
+      return '<nav class="navbar">' +
+        '<div class="container">' +
+        '<div class="navbar-logo" id="nav-logo"><div class="logo-icon">🏠</div> Brick<span class="logo-red">Mark</span></div>' +
+        '<div class="navbar-links">' +
+        '<button class="nav-link" data-nav="search" data-listing-type="buy">Buy</button>' +
+        '<button class="nav-link" data-nav="search" data-listing-type="rent">Rent</button>' +
+        '<button class="nav-link" data-nav="search" data-city="Bangalore">Bangalore</button>' +
+        '<button class="nav-link" data-nav="search" data-city="Mumbai">Mumbai</button>' +
+        '<button class="nav-btn" data-nav="search">Browse All</button>' +
+        '</div></div></nav>';
+    }
+
+    function attachNavEvents() {
+      var logo = document.getElementById('nav-logo');
+      if (logo) logo.addEventListener('click', function() { navigate('/'); });
+
+      document.querySelectorAll('[data-nav="search"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var params = {};
+          if (this.dataset.listingType) params.listing_type = this.dataset.listingType;
+          if (this.dataset.city) params.city = this.dataset.city;
+          navigate('/search', params);
+        });
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CTA BANNER
+    ═══════════════════════════════════════════════════════════ */
+    function ctaBannerHTML() {
+      return '<div class="cta-banner"><div class="container">' +
+        '<h2 class="cta-title">Ready to Find Your Perfect Home?</h2>' +
+        '<p class="cta-subtitle">Browse 20 verified properties in Bangalore &amp; Mumbai right now.</p>' +
+        '<button class="cta-btn" id="cta-browse-btn">Browse All Properties</button>' +
+        '</div></div>';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    function footerHTML() {
+      return '<footer class="footer"><div class="container">' +
+        '<div class="why-grid" style="margin-bottom:80px">' +
+        [
+          { icon:'🛡️', title:'100% Verified Listings', desc:'Every property is verified by our expert team for your peace of mind.' },
+          { icon:'📍', title:'Prime Locations', desc:'Curated properties in Bangalore & Mumbai\'s best neighbourhoods.' },
+          { icon:'👥', title:'Trusted Agents', desc:'Connect directly with experienced, background-checked property agents.' },
+          { icon:'⭐', title:'Premium Experience', desc:'Transparent pricing, detailed listings, and zero hidden charges.' }
+        ].map(function(w) {
+          return '<div class="why-card"><div class="why-icon">' + w.icon + '</div><div class="why-title">' + esc(w.title) + '</div><p class="why-desc">' + esc(w.desc) + '</p></div>';
+        }).join('') +
+        '</div>' +
+        '<div class="footer-divider"></div>' +
+        '<div class="footer-grid">' +
+        '<div><div class="navbar-logo" style="cursor:default"><div class="logo-icon" style="font-size:18px">🏠</div> Brick<span class="logo-red">Mark</span></div>' +
+        '<p class="footer-brand-desc">India\'s trusted property search platform. Discover, compare, and connect with verified properties across Bangalore and Mumbai.</p></div>' +
+        '<div><div class="footer-col-title">Explore</div><div class="footer-links">' +
+        '<button class="footer-link" data-nav="search" data-listing-type="buy">Buy Property</button>' +
+        '<button class="footer-link" data-nav="search" data-listing-type="rent">Rent Property</button>' +
+        '<button class="footer-link" data-nav="search" data-city="Bangalore">Bangalore</button>' +
+        '<button class="footer-link" data-nav="search" data-city="Mumbai">Mumbai</button>' +
+        '</div></div>' +
+        '<div><div class="footer-col-title">Property Types</div><div class="footer-links">' +
+        '<button class="footer-link" data-nav="search" data-property-type="Apartment">Apartments</button>' +
+        '<button class="footer-link" data-nav="search" data-property-type="Villa">Villas</button>' +
+        '<button class="footer-link" data-nav="search" data-property-type="Studio">Studio Flats</button>' +
+        '</div></div>' +
+        '<div><div class="footer-col-title">Company</div><div class="footer-links">' +
+        '<button class="footer-link">About Us</button>' +
+        '<button class="footer-link">Contact</button>' +
+        '<button class="footer-link">Careers</button>' +
+        '</div></div>' +
+        '</div>' +
+        '<div class="footer-bottom">' +
+        '<span>© 2024 BrickMark. All rights reserved.</span>' +
+        '<div class="footer-bottom-links">' +
+        '<span class="footer-bottom-link">Privacy Policy</span>' +
+        '<span class="footer-bottom-link">Terms of Service</span>' +
+        '</div></div>' +
+        '</div></footer>';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       GLOBAL EVENT DELEGATION FOR FOOTER LINKS & NAV
+    ═══════════════════════════════════════════════════════════ */
+    document.addEventListener('click', function(e) {
+      var el = e.target;
+      if (el.dataset.nav === 'search') {
+        var params = {};
+        if (el.dataset.listingType) params.listing_type = el.dataset.listingType;
+        if (el.dataset.city) params.city = el.dataset.city;
+        if (el.dataset.propertyType) params.property_type = el.dataset.propertyType;
+        navigate('/search', params);
+        return;
+      }
+      if (el.id === 'nav-logo') { navigate('/'); }
+    });
+
+    /* ═══════════════════════════════════════════════════════════
+       INIT
+    ═══════════════════════════════════════════════════════════ */
+    route();
+  </script>
+</body>
+</html>
