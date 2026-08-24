@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Node
+node_modules/
+dist/
+.parcel-cache/
+
+# Env
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
