@@ -2,7 +2,9 @@
 
 <div align="center">
 
-### Luxury Property Marketplace • Modern Real Estate Platform
+<img src="assets/brickmark-banner.png" width="100%"/>
+
+### Luxury Property Marketplace • Modern Frontend Experience
 
 *Discover • Buy • Sell • Rent Premium Properties*
 
@@ -19,101 +21,88 @@
 
 ---
 
-# ✨ The Vision
+# ✨ Project Vision
 
-**BrickMark** is a premium real estate marketplace designed to deliver a seamless property discovery experience through elegant UI, responsive layouts, and modern frontend architecture.
+**BrickMark** is a premium real estate marketplace inspired by modern property platforms. The application delivers an elegant browsing experience through responsive layouts, luxury UI components, featured property showcases and intuitive property discovery.
 
-Rather than functioning as a simple listing website, the platform focuses on creating a **luxury digital experience** inspired by modern property products.
+> **Design Philosophy:** Minimal • Luxury • Responsive • User-Centric
 
 ---
 
 # 🖼️ Platform Showcase
 
-> Replace these placeholders with your own screenshots from the project.
+<div align="center">
 
-| Homepage              | Property Listings     |
-| --------------------- | --------------------- |
-| `assets/homepage.png` | `assets/listings.png` |
+| Luxury Homepage                               | Property Listings                             |
+| --------------------------------------------- | --------------------------------------------- |
+| <img src="assets/homepage.png" width="100%"/> | <img src="assets/listings.png" width="100%"/> |
 
-| Property Details              | Mobile Responsive        |
-| ----------------------------- | ------------------------ |
-| `assets/property-details.png` | `assets/mobile-view.png` |
+| Property Details                             | Mobile Experience                           |
+| -------------------------------------------- | ------------------------------------------- |
+| <img src="assets/details.png" width="100%"/> | <img src="assets/mobile.png" width="100%"/> |
+
+</div>
 
 ---
 
 # 🚀 Premium Features
 
-### 🏡 Luxury Property Discovery
-
-Browse modern residential properties through beautifully designed listing cards.
-
-### 🔍 Smart Search Experience
-
-Intuitive property browsing with category-based exploration.
-
-### 📍 Location-Focused Design
-
-City-oriented property presentation for improved user experience.
-
-### ❤️ Favorite Ready UI
-
-Clean card layouts designed for future wishlist functionality.
-
-### 📱 Fully Responsive
-
-Optimized experience across desktop, tablet, and mobile devices.
-
-### 🎨 Minimal Luxury Interface
-
-Modern spacing, elegant typography, and premium blue visual identity.
+| Feature             | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| 🏡 Luxury Listings  | Browse beautifully designed residential properties    |
+| 🔍 Smart Search UI  | Intuitive property discovery experience               |
+| 📍 Location Based   | Explore properties by city & neighborhood             |
+| ❤️ Favorite Ready   | Elegant property cards for future wishlist support    |
+| 📱 Fully Responsive | Optimized for Desktop, Tablet & Mobile                |
+| 🎨 Premium Design   | Glass-inspired modern interface with spacious layouts |
 
 ---
 
-# 🏗️ Experience Architecture
+# 🏗️ User Experience Architecture
 
 ```text
-                    Visitor
-                       │
-                       ▼
-            Luxury Landing Page
-                       │
-        ┌──────────────┼──────────────┐
-        ▼              ▼              ▼
-   Featured Homes   Property Grid   Categories
-        │              │              │
-        └──────────────┼──────────────┘
-                       ▼
+                   Visitor
+                      │
+                      ▼
+             BrickMark Homepage
+                      │
+      ┌───────────────┼───────────────┐
+      ▼               ▼               ▼
+ Featured Homes   Property Listings   Categories
+      │               │               │
+      └───────────────┼───────────────┘
+                      ▼
               Property Details
-                       │
-                       ▼
-                Contact Inquiry
+                      │
+                      ▼
+              Contact / Inquiry
 ```
 
-The interface follows a clean client-side architecture where users seamlessly navigate between featured properties, listings, categories, and detailed property views.
+The platform follows a clean frontend architecture where users seamlessly navigate between featured properties, listings and detailed property views.
 
 ---
 
-# 🎨 Design Language
+# 🎨 Design System
 
-| Element             | Implementation         |
-| ------------------- | ---------------------- |
-| **Theme**           | Luxury Blue & White    |
-| **UI Style**        | Minimal Glass Inspired |
-| **Layout**          | CSS Grid + Flexbox     |
-| **Typography**      | Modern & Spacious      |
-| **Experience**      | Mobile First           |
-| **Visual Identity** | Premium Real Estate    |
+| Component           | Style                           |
+| ------------------- | ------------------------------- |
+| **Theme**           | Luxury Blue & White             |
+| **Typography**      | Modern Minimal                  |
+| **Layout**          | CSS Grid + Flexbox              |
+| **Cards**           | Glass-inspired Property UI      |
+| **Experience**      | Mobile First                    |
+| **Visual Identity** | Premium Real Estate Marketplace |
 
 ---
 
-# 💎 Why This Project?
+# 💎 Why BrickMark?
 
-* Premium real estate marketplace UI
+* Premium real estate landing experience
 * Modern responsive frontend architecture
-* Elegant property browsing experience
-* Clean component-based layout
-* Real-world landing page design
-* Professional portfolio-ready frontend project
+* Elegant property browsing interface
+* Clean component-based UI design
+* Portfolio-ready luxury web application
+* Real-world marketplace inspiration
 
 ---
 
@@ -121,10 +110,10 @@ The interface follows a clean client-side architecture where users seamlessly na
 
 <div align="center">
 
-|  Frontend  | Styling |  Responsive  |
-| :--------: | :-----: | :----------: |
-|    HTML5   |   CSS3  | Mobile First |
-| JavaScript | Flexbox |   CSS Grid   |
+|  Frontend  | Styling |       Layout      |
+| :--------: | :-----: | :---------------: |
+|    HTML5   |   CSS3  |      CSS Grid     |
+| JavaScript | Flexbox | Responsive Design |
 
 </div>
 
@@ -144,8 +133,9 @@ brickmark-real-estate/
 ├── assets/
 │   ├── homepage.png
 │   ├── listings.png
-│   ├── property-details.png
-│   └── mobile-view.png
+│   ├── details.png
+│   ├── mobile.png
+│   └── brickmark-banner.png
 └── README.md
 ```
 
@@ -166,14 +156,14 @@ Open index.html
 
 ---
 
-# 🌍 Responsive Experience
+# 🌍 Responsive Compatibility
 
-| Device     | Status             |
-| ---------- | ------------------ |
-| 🖥 Desktop | ✅ Optimized        |
-| 💻 Laptop  | ✅ Responsive       |
-| 📱 Tablet  | ✅ Adaptive         |
-| 📲 Mobile  | ✅ Fully Responsive |
+| Device     | Experience |
+| ---------- | ---------- |
+| 🖥 Desktop | ⭐⭐⭐⭐⭐      |
+| 💻 Laptop  | ⭐⭐⭐⭐⭐      |
+| 📱 Tablet  | ⭐⭐⭐⭐☆      |
+| 📲 Mobile  | ⭐⭐⭐⭐⭐      |
 
 ---
 
@@ -195,8 +185,6 @@ Open index.html
 
 <div align="center">
 
-### ⭐ If you like this project, consider giving it a Star.
-
-**Building elegant digital experiences for modern real estate.**
+### ⭐ Crafted with precision for modern luxury real estate experiences.
 
 </div>
