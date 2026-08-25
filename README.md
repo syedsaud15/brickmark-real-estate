@@ -1,23 +1,23 @@
 # 🏡 BrickMark — Premium Real Estate Platform
 
 <p align="center">
-  <img src="./assets/banner.png" width="100%" alt="BrickMark Banner"/>
+  <img src="./assets/banner.png" width="100%" alt="BrickMark Premium Banner"/>
 </p>
 
 <p align="center">
-  <b>Modern Property Discovery • Python • SQLite • Vercel • Render</b>
+  <strong>Modern Property Discovery • Python • SQLite • Vercel • Render</strong>
 </p>
 
 <p align="center">
-  A luxury real estate web platform for discovering verified properties across Mumbai & Bangalore.
+  A luxury real estate platform for discovering verified properties across Mumbai & Bangalore.
 </p>
 
 <p align="center">
   <a href="https://brickmark.vercel.app">
-    <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-000000?style=for-the-badge">
+    <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-0A0A0A?style=for-the-badge"/>
   </a>
   <a href="https://github.com/syedsaud15/brickmark-real-estate">
-    <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github">
+    <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github"/>
   </a>
 </p>
 
@@ -35,20 +35,22 @@
 
 # 📖 Overview
 
-**BrickMark** is a premium real estate discovery platform focused on delivering a modern and responsive property browsing experience.
+**BrickMark** is a premium real estate discovery platform built to deliver a modern, fast and responsive property browsing experience.
 
-The application allows users to explore verified residential properties, browse by city, switch between Buy & Rent categories, and access property details through a clean luxury interface.
+Users can browse verified residential properties, explore listings across **Mumbai** and **Bangalore**, switch between **Buy & Rent** categories, and access detailed property information through an elegant luxury interface.
 
 ---
 
 # ✨ Core Features
 
-- 🏙 Verified Property Listings
-- 🔍 City Based Discovery
-- 🏠 Buy & Rent Categories
-- 📱 Fully Responsive Design
-- ⚡ Fast Single Page Experience
-- 🌐 Production Deployment
+| Feature | Description |
+|----------|-------------|
+| 🛡 Verified Listings | Browse premium verified residential properties |
+| 🏙 City Discovery | Search properties across Mumbai & Bangalore |
+| 🏠 Buy & Rent | Seamlessly switch between property categories |
+| 📱 Responsive Design | Optimized for Desktop, Tablet & Mobile |
+| ⚡ Fast Experience | Lightweight single-page architecture |
+| 🌐 Production Ready | Live deployment using Vercel & Render |
 
 ---
 
@@ -56,29 +58,30 @@ The application allows users to explore verified residential properties, browse 
 
 | Layer | Technology |
 |--------|------------|
-| Frontend | HTML · CSS · JavaScript |
-| Backend | Python |
-| Database | SQLite |
-| API | REST |
-| Deployment | Vercel + Render |
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Python |
+| **Database** | SQLite |
+| **API** | REST |
+| **Deployment** | Vercel + Render |
+| **Version Control** | Git & GitHub |
 
 ---
 
-# 🏗 Architecture
+# 🏗 System Architecture
 
 ```text
-User Browser
-      │
-      ▼
-Frontend (Vercel)
-      │
- REST API
-      │
-      ▼
-Backend (Render)
-      │
-      ▼
-SQLite Database
+                     User Browser
+                          │
+                          ▼
+         Frontend (Vercel Static Website)
+                          │
+                    REST API Request
+                          │
+                          ▼
+          Backend (Render Python Server)
+                          │
+                          ▼
+             SQLite Properties Database
 ```
 
 ---
@@ -91,11 +94,13 @@ brickmark-real-estate/
 ├── frontend/
 │   ├── index.html
 │   ├── public/
-│   └── vercel.json
+│   ├── vercel.json
+│   └── assets/
 │
 ├── backend/
 │   ├── main.py
 │   ├── database.py
+│   ├── schemas.py
 │   ├── properties.db
 │   └── routers/
 │
@@ -107,7 +112,7 @@ brickmark-real-estate/
 
 ---
 
-# 🚀 Local Installation
+# 🚀 Getting Started
 
 ### Clone Repository
 
@@ -123,7 +128,15 @@ cd backend
 python main.py
 ```
 
-### Open Frontend
+Backend runs at:
+
+```text
+http://localhost:8000
+```
+
+### Run Frontend
+
+Open the frontend locally:
 
 ```text
 frontend/index.html
@@ -131,27 +144,47 @@ frontend/index.html
 
 ---
 
-# 🌍 Deployment
+# 🌍 Live Deployment
 
-| Service | Status |
-|----------|--------|
-| Frontend | Vercel |
-| Backend | Render |
-| Database | SQLite |
+| Service | URL |
+|----------|-----|
+| 🌐 Frontend | https://brickmark.vercel.app |
+| ⚙ Backend API | Render (Production) |
+| 💻 Repository | GitHub |
 
-**Live:** https://brickmark.vercel.app
+---
+
+# 📊 Project Highlights
+
+- Premium Dark Luxury UI
+- Verified Property Listings
+- Buy & Rent Categories
+- Mumbai & Bangalore Search
+- Responsive Layout
+- SQLite Powered Backend
+- Production Deployment Workflow
 
 ---
 
 # 👨‍💻 Developer
 
-**Syed Saud Alam**
+<p align="center">
 
-- GitHub: **@syedsaud15**
-- LinkedIn: **/in/syed-saud-dev**
+## **Syed Saud Alam**
+
+Data Engineer • Frontend Developer
+
+<a href="https://linkedin.com/in/syed-saud-dev">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+<a href="https://github.com/syedsaud15">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github"/>
+</a>
+
+</p>
 
 ---
 
 <p align="center">
-  Made with ❤️ by <b>Syed Saud Alam</b>
+  ⭐ If you like this project, consider giving it a Star.
 </p>
