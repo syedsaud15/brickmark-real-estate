@@ -1,170 +1,264 @@
-# <div align="center">🏙️ BrickMark</div>
-
 <div align="center">
 
-### Premium Real Estate Marketplace Platform
+<img src="./assets/banner.png" width="100%" alt="BrickMark Banner"/>
 
-*Luxury Property Discovery • Buy • Sell • Rent*
+# 🏡 BrickMark
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&duration=2600&pause=700&color=2563EB&center=true&vCenter=true&width=820&lines=Modern+Real+Estate+Marketplace;Responsive+Luxury+Property+Platform;Interactive+Property+Discovery;Built+with+HTML+CSS+JavaScript"/>
+### Premium Real Estate Discovery Platform
 
-<br/>
+A modern luxury real estate web application for discovering verified properties across Mumbai & Bangalore with a responsive and elegant user experience.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Responsive UI](https://img.shields.io/badge/Responsive-2563EB?style=for-the-badge)
+<p align="center">
+  <a href="https://brickmark.vercel.app">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-000000?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/syedsaud15/brickmark-real-estate">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel"/>
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=flat-square"/>
+</p>
 
 </div>
 
 ---
 
-## ✨ Experience First
+## ✨ Overview
 
-**BrickMark** is a luxury real estate marketplace focused on elegant property browsing and premium user experience. The platform allows users to discover residential properties through a clean, responsive interface inspired by modern real estate products.
+**BrickMark** is a premium real estate platform designed to deliver a modern property discovery experience. Users can browse verified residential properties, explore listings by city, and enjoy a responsive interface optimized for desktop and mobile devices.
 
-> **Design Philosophy:** Minimal • Premium • Responsive • User-Centric
-
----
-
-## 🖼️ Platform Showcase
-
-> Replace these with your actual screenshots inside `/assets`.
-
-| Homepage              | Property Details              |
-| --------------------- | ----------------------------- |
-| `assets/homepage.png` | `assets/property-details.png` |
-
-| Property Grid         | Mobile View         |
-| --------------------- | ------------------- |
-| `assets/listings.png` | `assets/mobile.png` |
+The project follows a production-style deployment architecture with **Vercel** for the frontend and **Render** for the backend API.
 
 ---
 
-## 🌟 Core Features
+# 🌍 Live Demo
 
-<div align="center">
+<p align="center">
+  <a href="https://brickmark.vercel.app">
+    <img src="https://img.shields.io/badge/Visit_BrickMark-Live-success?style=for-the-badge&logo=vercel"/>
+  </a>
+</p>
 
-|       🏡 Premium Listings      |    📍 Smart Location   |
-| :----------------------------: | :--------------------: |
-| Curated residential properties | Discover homes by city |
-
-| ❤️ Favorites Ready | 📱 Fully Responsive |
-| Save dream properties | Desktop • Tablet • Mobile |
-
-| 🔍 Property Search | 🎨 Luxury Interface |
-| Intuitive browsing experience | Modern glass-inspired UI |
-
-</div>
+**Live Website:** https://brickmark.vercel.app
 
 ---
 
-## 🏗️ User Journey
+# 🖼️ Project Showcase
+
+> Replace these images with your actual screenshots.
+
+<p align="center">
+  <img src="./assets/homepage.png" width="95%" alt="Homepage"/>
+</p>
+
+<p align="center">
+  <img src="./assets/listings.png" width="47%" alt="Listings"/>
+  <img src="./assets/details.png" width="47%" alt="Property Details"/>
+</p>
+
+<p align="center">
+  <img src="./assets/mobile.png" width="30%" alt="Mobile View"/>
+  <img src="./assets/search.png" width="30%" alt="Search"/>
+  <img src="./assets/cart.png" width="30%" alt="Responsive UI"/>
+</p>
+
+---
+
+# 🚀 Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🏙 Property Discovery
+
+- Verified property listings
+- Premium apartment showcase
+- Buy & Rent categories
+- City-based browsing
+
+</td>
+<td width="50%">
+
+### 💎 User Experience
+
+- Responsive design
+- Dark luxury interface
+- Fast navigation
+- Clean modern layout
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🔍 Smart Browsing
+
+- Search functionality
+- Category filtering
+- Property detail pages
+- Image gallery
+
+</td>
+<td width="50%">
+
+### ☁ Deployment
+
+- Vercel Frontend
+- Render Backend
+- SQLite Database
+- GitHub Version Control
+
+</td>
+</tr>
+</table>
+
+---
+
+# 🏗 Architecture
+
+<p align="center">
+  <img src="./assets/architecture.png" width="90%" alt="Architecture Diagram"/>
+</p>
 
 ```text
-Visitor
-   │
-   ▼
-Landing Experience
-   │
-   ▼
-Property Listings
-   │
-   ├── Search
-   ├── Categories
-   ├── Featured Homes
-   │
-   ▼
-Property Details
-   │
-   ▼
-Contact / Inquiry
+                User Browser
+                     │
+                     ▼
+        Vercel Frontend (HTML/CSS/JS)
+                     │
+          REST API Requests (HTTPS)
+                     │
+                     ▼
+       Render Backend (Python HTTP Server)
+                     │
+                     ▼
+          SQLite Database (20 Properties)
 ```
 
 ---
 
-## 🎨 Design System
+# 🛠 Tech Stack
 
-| Element       | Style                  |
-| ------------- | ---------------------- |
-| Primary Color | Royal Blue             |
-| Accent        | Sky Blue               |
-| Background    | White & Soft Gray      |
-| Typography    | Modern Minimal         |
-| Layout        | Glassmorphism Inspired |
-| UX            | Mobile First           |
-
----
-
-## 🛠️ Tech Stack
-
-<div align="center">
-
-|  Frontend  |    UI   |  Responsive  |
-| :--------: | :-----: | :----------: |
-|    HTML5   |   CSS3  | Mobile First |
-| JavaScript | Flexbox |   CSS Grid   |
-
-</div>
+| Category | Technologies |
+|----------|--------------|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Python |
+| **Database** | SQLite |
+| **Deployment** | Vercel + Render |
+| **Version Control** | Git & GitHub |
+| **Design** | Responsive Luxury UI |
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 brickmark-real-estate/
 │
-├── index.html
-├── css/
-│   ├── style.css
-│   └── responsive.css
-├── js/
-│   └── script.js
+├── frontend/
+│   ├── index.html
+│   ├── public/
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   └── vercel.json
+│
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── schemas.py
+│   ├── properties.db
+│   └── routers/
+│
 ├── assets/
+│   ├── banner.png
 │   ├── homepage.png
 │   ├── listings.png
-│   ├── property-details.png
-│   └── mobile.png
+│   ├── details.png
+│   ├── mobile.png
+│   └── architecture.png
+│
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# ⚡ Getting Started
+
+## Clone Repository
 
 ```bash
-# Clone repository
 git clone https://github.com/syedsaud15/brickmark-real-estate.git
-
-# Open project
 cd brickmark-real-estate
-
-# Launch
-Open index.html
 ```
 
+## Run Backend
+
+```bash
+cd backend
+python main.py
+```
+
+Backend runs on:
+
+```text
+http://localhost:8000
+```
+
+## Run Frontend
+
+Open `frontend/index.html` in your browser.
+
 ---
 
-## 💎 Why BrickMark?
+# 📱 Responsive Design
 
-* Premium marketplace interface
-* Elegant property discovery
-* Clean responsive architecture
-* Modern visual hierarchy
-* Optimized browsing experience
-* Real-world frontend project
+BrickMark is optimized for every screen size.
+
+| Device | Supported |
+|---------|-----------|
+| 💻 Desktop | ✅ |
+| 🖥 Large Screens | ✅ |
+| 📱 Mobile | ✅ |
+| 📲 Tablet | ✅ |
 
 ---
 
-## 👨‍💻 Developer
+# 🎯 Key Highlights
+
+- Modern luxury real estate interface
+- Production-style deployment workflow
+- Verified property browsing experience
+- Clean responsive architecture
+- Live frontend & backend integration
+
+---
+
+# 👨‍💻 Developer
 
 <div align="center">
 
-**Syed Saud Alam**
+## Syed Saud Alam
 
-Data Engineer • AI Engineer • Frontend Developer
+**Data Engineer • Frontend Developer**
 
-[Portfolio](https://syedsaud15.github.io/syed-saud-portfolio/) • [LinkedIn](https://www.linkedin.com/in/syed-saud-dev/)
+<p>
+  <a href="https://linkedin.com/in/syed-saud-dev">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="https://github.com/syedsaud15">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github"/>
+  </a>
+</p>
 
 </div>
 
@@ -172,6 +266,8 @@ Data Engineer • AI Engineer • Frontend Developer
 
 <div align="center">
 
-### ⭐ Crafted with precision for modern real estate experiences.
+### ⭐ If you found this project helpful, consider giving it a Star.
+
+**Built with ❤️ by Syed Saud Alam**
 
 </div>
