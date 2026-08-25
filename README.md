@@ -1,119 +1,106 @@
-# <div align="center">🏙️ BrickMark Real Estate</div>
+# <div align="center">🚀 Python GitLab CI/CD Demo</div>
 
 <div align="center">
 
-<img src="assets/brickmark-banner.png" width="100%"/>
+<img src="assets/gitlab-banner.png" width="100%"/>
 
-### Luxury Property Marketplace • Modern Frontend Experience
+### Enterprise DevOps • Docker • Automation • Python
 
-*Discover • Buy • Sell • Rent Premium Properties*
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&duration=2600&pause=700&color=2563EB&center=true&vCenter=true&width=850&lines=Luxury+Real+Estate+Marketplace;Responsive+Property+Discovery;Modern+Frontend+Architecture;HTML+%7C+CSS+%7C+JavaScript"/>
+*Production-ready Continuous Integration & Deployment Pipeline*
 
 <br/>
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Responsive](https://img.shields.io/badge/Responsive_UI-2563EB?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![GitLab CI](https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge\&logo=gitlab\&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)
+![PyTest](https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
 
 </div>
 
 ---
 
-# ✨ Project Vision
+# 📖 Project Overview
 
-**BrickMark** is a premium real estate marketplace inspired by modern property platforms. The application delivers an elegant browsing experience through responsive layouts, luxury UI components, featured property showcases and intuitive property discovery.
+This project demonstrates a **production-ready GitLab CI/CD pipeline** built for Python applications. It automates the complete software delivery lifecycle including dependency installation, testing, code quality validation, Docker packaging, artifact generation and deployment preparation.
 
-> **Design Philosophy:** Minimal • Luxury • Responsive • User-Centric
+> **Objective:** Replace manual deployment with a reliable automated DevOps workflow.
 
 ---
 
-# 🖼️ Platform Showcase
+# ⚡ Project Metrics
 
 <div align="center">
 
-| Luxury Homepage                               | Property Listings                             |
-| --------------------------------------------- | --------------------------------------------- |
-| <img src="assets/homepage.png" width="100%"/> | <img src="assets/listings.png" width="100%"/> |
-
-| Property Details                             | Mobile Experience                           |
-| -------------------------------------------- | ------------------------------------------- |
-| <img src="assets/details.png" width="100%"/> | <img src="assets/mobile.png" width="100%"/> |
+| 🤖 Automation | 🧪 Testing | 🐳 Containers | 🚀 Deployment |
+| :-----------: | :--------: | :-----------: | :-----------: |
+|    **100%**   | **PyTest** |   **Docker**  |   **Ready**   |
 
 </div>
 
 ---
 
-# 🚀 Premium Features
-
-| Feature             | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| 🏡 Luxury Listings  | Browse beautifully designed residential properties    |
-| 🔍 Smart Search UI  | Intuitive property discovery experience               |
-| 📍 Location Based   | Explore properties by city & neighborhood             |
-| ❤️ Favorite Ready   | Elegant property cards for future wishlist support    |
-| 📱 Fully Responsive | Optimized for Desktop, Tablet & Mobile                |
-| 🎨 Premium Design   | Glass-inspired modern interface with spacious layouts |
-
----
-
-# 🏗️ User Experience Architecture
+# 🔄 CI/CD Pipeline Workflow
 
 ```text
-                   Visitor
-                      │
-                      ▼
-             BrickMark Homepage
-                      │
-      ┌───────────────┼───────────────┐
-      ▼               ▼               ▼
- Featured Homes   Property Listings   Categories
-      │               │               │
-      └───────────────┼───────────────┘
-                      ▼
-              Property Details
-                      │
-                      ▼
-              Contact / Inquiry
+        Developer Push
+               │
+               ▼
+      GitLab Pipeline Trigger
+               │
+    ┌──────────┼──────────┐
+    ▼          ▼          ▼
+  Build      Test      Lint
+    │          │          │
+    └──────────┼──────────┘
+               ▼
+        Docker Package
+               │
+               ▼
+        Artifact Storage
+               │
+               ▼
+        Deploy Ready ✅
 ```
 
-The platform follows a clean frontend architecture where users seamlessly navigate between featured properties, listings and detailed property views.
+---
+
+# 🏗️ Pipeline Stages
+
+| Stage                 | Description                                       |
+| --------------------- | ------------------------------------------------- |
+| **01 • Build**        | Install Python dependencies & prepare environment |
+| **02 • Test**         | Execute automated PyTest test suite               |
+| **03 • Lint**         | Validate code quality & style checks              |
+| **04 • Package**      | Build Docker image & generate artifacts           |
+| **05 • Deploy Ready** | Application prepared for production deployment    |
 
 ---
 
-# 🎨 Design System
+# ✨ Enterprise Features
 
-| Component           | Style                           |
-| ------------------- | ------------------------------- |
-| **Theme**           | Luxury Blue & White             |
-| **Typography**      | Modern Minimal                  |
-| **Layout**          | CSS Grid + Flexbox              |
-| **Cards**           | Glass-inspired Property UI      |
-| **Experience**      | Mobile First                    |
-| **Visual Identity** | Premium Real Estate Marketplace |
-
----
-
-# 💎 Why BrickMark?
-
-* Premium real estate landing experience
-* Modern responsive frontend architecture
-* Elegant property browsing interface
-* Clean component-based UI design
-* Portfolio-ready luxury web application
-* Real-world marketplace inspiration
+* ✅ Automated GitLab CI/CD pipeline
+* ✅ Multi-stage workflow architecture
+* ✅ PyTest integration for unit testing
+* ✅ Docker image packaging
+* ✅ Artifact generation & storage
+* ✅ Production deployment ready
+* ✅ Scalable DevOps workflow
 
 ---
 
-# 🛠️ Technology Stack
+# 🛠️ Tech Stack
 
 <div align="center">
 
-|  Frontend  | Styling |       Layout      |
-| :--------: | :-----: | :---------------: |
-|    HTML5   |   CSS3  |      CSS Grid     |
-| JavaScript | Flexbox | Responsive Design |
+| Category            | Technologies  |
+| :------------------ | :------------ |
+| **Language**        | Python        |
+| **CI/CD**           | GitLab CI     |
+| **Testing**         | PyTest        |
+| **Containers**      | Docker        |
+| **Version Control** | Git & GitLab  |
+| **Automation**      | GitLab Runner |
 
 </div>
 
@@ -122,48 +109,74 @@ The platform follows a clean frontend architecture where users seamlessly naviga
 # 📂 Project Structure
 
 ```text
-brickmark-real-estate/
+python-gitlab-cicd-demo/
 │
-├── index.html
-├── css/
-│   ├── style.css
-│   └── responsive.css
-├── js/
-│   └── script.js
-├── assets/
-│   ├── homepage.png
-│   ├── listings.png
-│   ├── details.png
-│   ├── mobile.png
-│   └── brickmark-banner.png
+├── .gitlab-ci.yml
+├── Dockerfile
+├── requirements.txt
+├── src/
+│   ├── app.py
+│   └── utils.py
+├── tests/
+│   └── test_app.py
+├── artifacts/
 └── README.md
 ```
 
 ---
 
-# ⚡ Quick Start
+# 🚀 Quick Start
+
+### Clone Repository
 
 ```bash
-# Clone repository
-git clone https://github.com/syedsaud15/brickmark-real-estate.git
-
-# Enter project
-cd brickmark-real-estate
-
-# Launch
-Open index.html
+git clone https://github.com/syedsaud15/python-gitlab-cicd-demo.git
 ```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Test Suite
+
+```bash
+pytest
+```
+
+### Trigger Pipeline
+
+```bash
+git add .
+git commit -m "CI Pipeline"
+git push origin main
+```
+
+GitLab automatically starts the CI/CD workflow after every push.
 
 ---
 
-# 🌍 Responsive Compatibility
+# 📊 Expected Pipeline Result
 
-| Device     | Experience |
-| ---------- | ---------- |
-| 🖥 Desktop | ⭐⭐⭐⭐⭐      |
-| 💻 Laptop  | ⭐⭐⭐⭐⭐      |
-| 📱 Tablet  | ⭐⭐⭐⭐☆      |
-| 📲 Mobile  | ⭐⭐⭐⭐⭐      |
+| Job     | Status    |
+| ------- | --------- |
+| Build   | 🟢 Passed |
+| Test    | 🟢 Passed |
+| Lint    | 🟢 Passed |
+| Docker  | 🟢 Passed |
+| Package | 🟢 Passed |
+
+---
+
+# 🎯 Learning Outcomes
+
+* Production GitLab CI/CD
+* Multi-stage pipeline design
+* Automated testing with PyTest
+* Docker-based packaging
+* Artifact management
+* Continuous Integration best practices
 
 ---
 
@@ -173,7 +186,7 @@ Open index.html
 
 ## Syed Saud Alam
 
-**Data Engineer • AI Engineer • Frontend Developer**
+**Data Engineer • AI Engineer • DevOps Enthusiast**
 
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://syedsaud15.github.io/syed-saud-portfolio/)
 
@@ -185,6 +198,8 @@ Open index.html
 
 <div align="center">
 
-### ⭐ Crafted with precision for modern luxury real estate experiences.
+### ⭐ Star this repository if you found it useful.
+
+**Built with ❤️ using Python, GitLab CI/CD & Docker**
 
 </div>
