@@ -1,102 +1,92 @@
-# <div align="center">🏙️ BrickMark Real Estate</div>
+# <div align="center">🚀 Python GitLab CI/CD Pipeline</div>
 
 <div align="center">
 
-### Premium Real Estate Marketplace Platform
+### Enterprise DevOps Automation with GitLab CI/CD
 
-*Discover • Buy • Sell • Rent Luxury Properties*
+*Build • Test • Quality • Package • Deploy*
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=700&color=2563EB&center=true&vCenter=true&width=800&lines=Modern+Real+Estate+Marketplace;Responsive+Luxury+Property+Platform;HTML+%7C+CSS+%7C+JavaScript;Designed+for+Premium+User+Experience"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&duration=2600&pause=700&color=FC6D26&center=true&vCenter=true&width=820&lines=Production+GitLab+CI%2FCD+Pipeline;Python+Automation+Workflow;Docker+%7C+PyTest+%7C+GitLab+Runner;Continuous+Integration+%26+Deployment"/>
 
 <br/>
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Responsive](https://img.shields.io/badge/Responsive-2563EB?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![GitLab CI](https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge\&logo=gitlab\&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)
+![PyTest](https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge)
 
 </div>
 
 ---
 
-# 🏡 About The Platform
+# ⚡ Overview
 
-**BrickMark** is a modern luxury real estate marketplace designed to deliver a premium property discovery experience.
+This project demonstrates a **production-style GitLab CI/CD pipeline** for Python applications.
 
-The platform allows users to explore residential properties, discover featured listings, browse by location, and enjoy a responsive interface optimized for desktop, tablet, and mobile devices.
+The workflow automatically validates code quality, executes unit tests, generates artifacts, builds Docker images and prepares the application for deployment using GitLab Runners.
 
-> **Design Goal:** Combine elegant visual design with a seamless property browsing experience.
-
----
-
-# ✨ Core Features
-
-<div align="center">
-
-| 🏘️ Property Listings |    📍 Location Discovery   |
-| :-------------------: | :------------------------: |
-|  Browse premium homes | Explore properties by city |
-
-| ❤️ Favorites Ready | 📱 Fully Responsive |
-| Save dream properties | Desktop • Tablet • Mobile |
-
-| 🔎 Smart Search UI | 🎨 Luxury Interface |
-| Modern filtering experience | Glass-inspired clean design |
-
-</div>
+> **Goal:** Eliminate manual deployment through automated DevOps pipelines.
 
 ---
 
-# 🖥️ User Experience
-
-### Elegant Homepage
-
-Modern hero section with featured luxury properties and premium call-to-action design.
-
-### Property Discovery
-
-Browse curated residential listings with intuitive cards and clean visual hierarchy.
-
-### Responsive Experience
-
-Optimized layouts ensure a consistent experience across every screen size.
-
----
-
-# 🏗️ Platform Architecture
+# 🏗️ Pipeline Architecture
 
 <div align="center">
 
 ```text
-               User
+          Developer Push
                  │
                  ▼
-      BrickMark Frontend
+      GitLab Repository
                  │
-      ┌──────────┼──────────┐
-      ▼          ▼          ▼
- Property     Search      Featured
- Listings     System      Properties
-      │          │          │
-      └──────────┼──────────┘
+        Pipeline Trigger
+                 │
+   ┌─────────────┼─────────────┐
+   ▼             ▼             ▼
+ Build        Unit Tests    Lint Check
+   │             │             │
+   └─────────────┼─────────────┘
                  ▼
-          Responsive UI
+          Docker Build
+                 │
+                 ▼
+         Artifact Storage
+                 │
+                 ▼
+        Deployment Ready
 ```
 
 </div>
 
-The application follows a clean client-side architecture where users interact with responsive components, property listings, search interfaces, and featured content through a modern frontend experience.
+---
+
+# 🔄 CI/CD Workflow
+
+| Stage      | Purpose                                    |
+| ---------- | ------------------------------------------ |
+| 🏗️ Build  | Install dependencies & prepare environment |
+| ✅ Test     | Execute automated PyTest suite             |
+| 🔍 Quality | Validate code quality & pipeline health    |
+| 📦 Package | Generate Docker image & artifacts          |
+| 🚀 Deploy  | Ready for production deployment            |
 
 ---
 
-# 🎨 Design Philosophy
+# ✨ Enterprise Features
 
-* Minimal luxury aesthetic
-* Premium blue & white palette
-* Glass-inspired interface
-* Large visual property cards
-* Smooth responsive layouts
-* User-first navigation
+<div align="center">
+
+|        ⚙️ Automation       |     🧪 Testing     |
+| :------------------------: | :----------------: |
+| Automatic pipeline trigger | PyTest integration |
+
+| 🐳 Containerization | 📦 Artifacts |
+| Docker image build | Build artifact generation |
+
+| 🔐 Version Control | 🚀 Deployment |
+| GitLab Runner execution | Production-ready workflow |
+
+</div>
 
 ---
 
@@ -104,10 +94,14 @@ The application follows a clean client-side architecture where users interact wi
 
 <div align="center">
 
-|  Frontend  |     Styling    |         UI        |
-| :--------: | :------------: | :---------------: |
-|    HTML5   |      CSS3      | Responsive Design |
-| JavaScript | Flexbox & Grid | Modern Components |
+| Category        | Technologies  |
+| :-------------- | :------------ |
+| Language        | Python        |
+| CI/CD           | GitLab CI     |
+| Testing         | PyTest        |
+| Containers      | Docker        |
+| Version Control | Git & GitLab  |
+| Automation      | GitLab Runner |
 
 </div>
 
@@ -116,46 +110,65 @@ The application follows a clean client-side architecture where users interact wi
 # 📂 Project Structure
 
 ```text
-BrickMark-Real-Estate/
+python-gitlab-cicd-demo/
 │
-├── index.html
-├── css/
-├── js/
-├── images/
-├── assets/
+├── .gitlab-ci.yml
+├── Dockerfile
+├── requirements.txt
+├── src/
+├── tests/
+├── artifacts/
 └── README.md
 ```
 
 ---
 
-# 🚀 Getting Started
+# 🚀 Quick Start
+
+### Clone Repository
 
 ```bash
-# Clone repository
-git clone https://github.com/syedsaud15/brickmark-real-estate.git
-
-# Open project
-cd brickmark-real-estate
-
-# Run
-Open index.html
+git clone https://github.com/syedsaud15/python-gitlab-cicd-demo.git
 ```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Tests
+
+```bash
+pytest
+```
+
+### Execute Pipeline
+
+Push code to GitLab and the pipeline automatically starts.
 
 ---
 
-# 🌍 Responsive Preview
+# 📊 Pipeline Outcomes
 
-**Desktop Experience**
+| Metric              | Status |
+| ------------------- | ------ |
+| Build Automation    | ✅      |
+| Unit Testing        | ✅      |
+| Docker Packaging    | ✅      |
+| Artifact Generation | ✅      |
+| Deployment Ready    | ✅      |
 
-Luxury widescreen property browsing interface.
+---
 
-**Tablet Experience**
+# 🎯 Learning Objectives
 
-Optimized grid layouts and adaptive navigation.
-
-**Mobile Experience**
-
-Touch-friendly responsive property marketplace.
+* GitLab CI/CD fundamentals
+* Multi-stage pipeline design
+* Automated Python testing
+* Docker-based packaging
+* Artifact management
+* Continuous Integration workflow
 
 ---
 
@@ -165,7 +178,7 @@ Touch-friendly responsive property marketplace.
 
 ## Syed Saud Alam
 
-**Data Engineer • AI Engineer • Frontend Developer**
+**Data Engineer • AI Engineer • DevOps Enthusiast**
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://syedsaud15.github.io/syed-saud-portfolio/)
 
@@ -177,8 +190,8 @@ Touch-friendly responsive property marketplace.
 
 <div align="center">
 
-### ⭐ If you like this project, consider giving it a Star.
+### ⭐ Star this repository if you found it useful.
 
-**Building beautiful digital experiences, one interface at a time.**
+**Automating software delivery through reliable DevOps pipelines.**
 
 </div>
